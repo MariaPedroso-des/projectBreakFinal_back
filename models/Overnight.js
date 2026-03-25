@@ -15,9 +15,15 @@ const validProximity = [
   'sin servicios cercanos',
   'supermercados',
   'bares-restaurantes',
-  'puntos de interés turísticos',
+  'bares-restaurantes pet friendly',
+  'puntos de interés turístico',
   'inicio rutas de senderismo',
-  'vistas panorámicas'
+  'centro de interpretación',
+  'vistas panorámicas',
+  'parque',
+  'pipican',
+  'hotel canino',
+  'veterinario'
 ]
 const validSignal = [
   'sin servicio',
@@ -105,6 +111,11 @@ const OvernightSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
+  capacity: {
+    type: Number,
+    trim: true,
+    required: true,
+  },
   image: {
     type: String,
     trim: true,
@@ -147,6 +158,7 @@ const OvernightSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 const Overnight = mongoose.model('Overnight', OvernightSchema)
+
 module.exports = {
   Overnight,
   validLimitations,
