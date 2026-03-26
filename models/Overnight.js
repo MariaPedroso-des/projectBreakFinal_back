@@ -2,41 +2,47 @@
 const mongoose = require('mongoose')
 
 const validServices = [
-  'sin servicios',
   'vaciado de aguas grises',
   'vaciado de aguas negras',
   'llenado de agua potable',
   'gestión de residuos',
   'iluminación nocturna',
   'área de picnic',
-  'sombra'
+  'zona de sombra',
+  'baños públicos',
 ]
 const validProximity = [
-  'sin servicios cercanos',
   'supermercados',
   'bares-restaurantes',
   'bares-restaurantes pet friendly',
-  'puntos de interés turístico',
-  'inicio rutas de senderismo',
+  'interés turístico',
+  'acceso a rutas de senderismo',
   'centro de interpretación',
   'vistas panorámicas',
   'parque',
   'pipican',
-  'hotel canino',
-  'veterinario'
+  'residencia canina',
+  'tienda de mascotas',
+  'clínica veterinaria',
+  'gasolinera',
+  'farmacia',
+  'área recreativa',
+  'playa canina',
+
 ]
 const validSignal = [
   'sin servicio',
-  '4G',
-  'solo llamadas'
+  'solo cobertura básica',
+  '4G'
 ]
 const validLimitations = [
-  'altura restringida',
+  'gálibo máximo 2m',
+  'gálibo máximo 2.20m',
+  'gálibo máximo 2.50m',
   'área natural protegida',
   'aparcamiento de día'
 ]
 const validStay = [
-  'sin restricción',
   '24h',
   '48h',
   '72h'

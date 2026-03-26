@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const Overnight = require('../models/Overnight.js')
 const OvernightController = require('../controllers/overnight.controller.js')
 
 router.get('/', OvernightController.getAllOvernights)

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const HikingController = require('../controllers/hikings.controller.js')
 
-router.get('/', (req, res) => {
-  res.send('hikings work')
-})
+router.get('/', HikingController.getAllHikings)
+
 module.exports = router

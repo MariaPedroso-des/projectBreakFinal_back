@@ -66,7 +66,4 @@ const overnightController = {
   }
 }
 
-
-
-
 module.exports = overnightController
