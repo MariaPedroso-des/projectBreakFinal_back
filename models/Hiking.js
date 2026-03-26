@@ -1,7 +1,7 @@
 //Aquí definimos qué es una ruta utilizando mongoose
 const mongoose = require('mongoose')
 
-const validDifficulty = ['baja', 'media', 'ténico']
+const validDifficulty = ['baja', 'media', 'ténica']
 
 const validTerrain = [
   'firme compacto y estable',
@@ -11,6 +11,22 @@ const validTerrain = [
   'arena o grava suelta',
   'arena o grava suelta con gran pendiente',
   'terreno arcilloso',
+]
+
+const validWater = [
+  'río permanente',
+  'arroyo temporal',
+  'rambla',
+  'cascadas o rápidos',
+  'laguna o embalse',
+  'fuentes naturales',
+  'desembalses de agua sin previo aviso'
+]
+
+const validApproved = [
+  'SL | sendero local',
+  'PR | pequeño recorrido',
+  'GR | gran recorrido'
 ]
 
 const validProvince = [
@@ -77,10 +93,12 @@ const HikingSchema = new mongoose.Schema({
     type: String,
     enum: validProvince,
     required: true,
+    trim: true
   },
   difficulty: {
     type: String,
-    enum: validDifficulty
+    enum: validDifficulty,
+    required: true
   },
   distanceKm: {
     type: Number,
@@ -88,10 +106,10 @@ const HikingSchema = new mongoose.Schema({
     min: 1,
     max: 50
   },
-  typeTerrain: {
+  typeTerrain: [{
     type: String,
     enum: validTerrain
-  },
+  }],
   description: {
     type: String,
     trim: true,
@@ -101,6 +119,18 @@ const HikingSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  approvedFEDME: {
+    type: String,
+    enum: validApproved
+  },
+  mapsLink: {
+    type: String,
+    trim: true
+  },
+  accessWater: [{
+    type: String,
+    enum: validWater
+  }]
 }, { timestamps: true })
 
 const Hiking = mongoose.model('Hiking', HikingSchema)
@@ -108,5 +138,8 @@ const Hiking = mongoose.model('Hiking', HikingSchema)
 module.exports = {
   Hiking,
   validProvince,
-  validDifficulty
+  validTerrain,
+  validDifficulty,
+  validWater,
+  validApproved
 }

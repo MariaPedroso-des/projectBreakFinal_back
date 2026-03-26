@@ -111,6 +111,7 @@ const OvernightSchema = new mongoose.Schema({
     type: String,
     enum: validProvince,
     required: true,
+    trim: true,
   },
   description: {
     type: String,
@@ -119,8 +120,8 @@ const OvernightSchema = new mongoose.Schema({
   },
   capacity: {
     type: Number,
-    trim: true,
     required: true,
+    min: 1
   },
   image: {
     type: String,
